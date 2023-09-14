@@ -1,0 +1,55 @@
+{
+    "@@locale": "en",
+    "a1languageInEnglish": "English",
+    "@a1languageInEnglish": {
+        "description": "This is the English title for each language"
+    },
+    "signIn": "Sign In",
+    "@signIn": {
+        "description": "Header on Login Page"
+    },
+    "username": "Username",
+    "@username": {
+        "description": "Hint for Username Text Box"
+    },
+    "password": "Password",
+    "@password": {
+        "description": "Hint for Password Text Box"
+    },
+    "login": "Login",
+    "@login": {
+        "description": "Button Text on Login Page"
+    },
+    "patientListTitle": "Patient List",
+    "@patientListTitle": {
+        "description": "Title for the PatientListView"
+    },
+    "patientSearch": "Search for Patient",
+    "@patientSearch": {
+        "description": "Text Box to Search on PatientListView"
+    },
+    "newPatient": "New Patient",
+    "@newPatient": {
+        "description": "Text for floating action (or any) button to add a patient"
+    },
+    "editPatient": "Edit Patient",
+    "@editPatient": {
+        "description": "Title Text for Edit Patient View when it's an old patient"
+    },
+    "createNewPatient": "Create New Patient",
+    "@createNewPatient": {
+        "description": "Title Text for Edit Patient View when you're creating a new Patient"
+    },
+    "names": "Names",
+    "@names": {
+        "description": "The Full Name of a Patient"
+    },
+    "birthDateAbbreviation": "DOB",
+    "@birthDateAbbreviation": {
+        "description": "An abbreviation, if available, to stand in for 'Date of Birth'"
+    },
+    "sexAtBirth": "Sex",
+    "@sexAtBirth": {
+        "description": "The patient's assigned sex at birth"
+    }
+}

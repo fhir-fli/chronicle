@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Init extends StatelessWidget {
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'src.dart';
+
+class Init extends ConsumerWidget {
   const Init({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return const ProviderScope(
       child: MaterialApp(
-        home: PatientList(),
+        home: LoginView(),
+        // *** LOCALES ***
+        localizationsDelegates: [
+          ...AppLocalizations.localizationsDelegates,
+        ],
+        supportedLocales: [
+          ...AppLocalizations.supportedLocales,
+        ],
       ),
     );
   }
