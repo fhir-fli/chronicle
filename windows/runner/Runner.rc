@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "dev.fhirfli" "\0"
-            VALUE "FileDescription", "mopenmrs" "\0"
+            VALUE "FileDescription", "chronicle" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "mopenmrs" "\0"
+            VALUE "InternalName", "chronicle" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 dev.fhirfli. All rights reserved." "\0"
-            VALUE "OriginalFilename", "mopenmrs.exe" "\0"
-            VALUE "ProductName", "mopenmrs" "\0"
+            VALUE "OriginalFilename", "chronicle.exe" "\0"
+            VALUE "ProductName", "chronicle" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

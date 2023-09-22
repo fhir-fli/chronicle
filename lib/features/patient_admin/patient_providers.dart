@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4.dart';
-import 'package:mopenmrs/src.dart';
+import 'package:chronicle/src.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'patient_providers.g.dart';
