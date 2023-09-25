@@ -2,54 +2,198 @@
     "@@locale": "en",
     "a1languageInEnglish": "English",
     "@a1languageInEnglish": {
-        "description": "This is the English title for each language"
+        "description": "A message without extra parameters"
     },
-    "signIn": "Sign In",
-    "@signIn": {
-        "description": "Header on Login Page"
+    "a1languageTitle": "English",
+    "@a1languageTitle": {
+        "description": "A message without extra parameters"
     },
-    "username": "Username",
-    "@username": {
-        "description": "Hint for Username Text Box"
+    "admin": "Admin",
+    "@admin": {
+        "description": "Admin"
     },
-    "password": "Password",
-    "@password": {
-        "description": "Hint for Password Text Box"
+    "age": "Age",
+    "@age": {
+        "description": "Age"
     },
-    "login": "Login",
-    "@login": {
-        "description": "Button Text on Login Page"
-    },
-    "patientListTitle": "Patient List",
-    "@patientListTitle": {
-        "description": "Title for the PatientListView"
-    },
-    "patientSearch": "Search for Patient",
-    "@patientSearch": {
-        "description": "Text Box to Search on PatientListView"
-    },
-    "newPatient": "New Patient",
-    "@newPatient": {
-        "description": "Text for floating action (or any) button to add a patient"
-    },
-    "editPatient": "Edit Patient",
-    "@editPatient": {
-        "description": "Title Text for Edit Patient View when it's an old patient"
-    },
-    "createNewPatient": "Create New Patient",
-    "@createNewPatient": {
-        "description": "Title Text for Edit Patient View when you're creating a new Patient"
-    },
-    "names": "Names",
-    "@names": {
-        "description": "The Full Name of a Patient"
+    "birthDate": "BirthDate",
+    "@birthDate": {
+        "description": "Birth Date"
     },
     "birthDateAbbreviation": "DOB",
     "@birthDateAbbreviation": {
-        "description": "An abbreviation, if available, to stand in for 'Date of Birth'"
+        "description": "Abbreviation of Birth Date"
     },
-    "sexAtBirth": "Sex",
+    "communication": "Communication",
+    "@communication": {
+        "description": "Communication"
+    },
+    "contactName": "Contact Name",
+    "@contactName": {
+        "description": "Contact Name"
+    },
+    "dataReview": "Data Review",
+    "@dataReview": {
+        "description": "Data Review"
+    },
+    "days": "Days",
+    "@days": {
+        "description": "Days"
+    },
+    "dontHaveAccount": "Don't Have an Account?",
+    "@dontHaveAccount": {
+        "description": "Don't Have an Account?"
+    },
+    "email": "Email",
+    "@email": {
+        "description": "Email"
+    },
+    "enterYourEmail": "Enter your Email",
+    "@enterYourEmail": {
+        "description": "Enter your Email"
+    },
+    "enterYourPassword": "Enter your Password",
+    "@enterYourPassword": {
+        "description": "Enter your Password"
+    },
+    "familyName": "Family Name",
+    "@familyName": {
+        "description": "Family Name"
+    },
+    "forgotPassword": "Forgot Password?",
+    "@forgotPassword": {
+        "description": "Forgot Password?"
+    },
+    "genderIdentity": "Gender Identity",
+    "@genderIdentity": {
+        "description": "Gender Identity"
+    },
+    "growth": "Growth",
+    "@growth": {
+        "description": "Growth"
+    },
+    "homePage": "Home Page",
+    "@homePage": {
+        "description": "Home Page"
+    },
+    "loginCapital": "LOGIN",
+    "@loginCapital": {
+        "description": "LOGIN"
+    },
+    "loginLowercase": "login",
+    "@loginLowercase": {
+        "description": "login"
+    },
+    "logout": "Logout",
+    "@logout": {
+        "description": "Logout"
+    },
+    "months": "Months",
+    "@months": {
+        "description": "Months"
+    },
+    "name": "Name",
+    "@name": {
+        "description": "name"
+    },
+    "names": "Names",
+    "@names": {
+        "description": "Names"
+    },
+    "navigator": "Navigator",
+    "@navigator": {
+        "description": "Navigator"
+    },
+    "newPatient": "New Patient",
+    "@newPatient": {
+        "description": "New Patient"
+    },
+    "noBirthdateAvailable": "No Birthdate Available",
+    "@noBirthdateAvailable": {
+        "description": "No Birthdate Available"
+    },
+    "notes": "Notes",
+    "@notes": {
+        "description": "Notes"
+    },
+    "orForLogin": "- OR -",
+    "@orForLogin": {
+        "description": "- OR -"
+    },
+    "password": "Password",
+    "@password": {
+        "description": "Password"
+    },
+    "patient": "Patient",
+    "@patient": {
+        "description": "Patient"
+    },
+    "patientIndex": "Patient Index",
+    "@patientIndex": {
+        "description": "Patient Index"
+    },
+    "patientInfo": "Patient Info",
+    "@patientInfo": {
+        "description": "Patient Info"
+    },
+    "population": "Population",
+    "@population": {
+        "description": "Population"
+    },
+    "preferredName": "Preferred Name",
+    "@preferredName": {
+        "description": "Preferred Name"
+    },
+    "pronouns": "Pronouns",
+    "@pronouns": {
+        "description": "Pronouns"
+    },
+    "rememberMe": "Remember Me",
+    "@rememberMe": {
+        "description": "Remember Me"
+    },
+    "schedule": "Schedule",
+    "@schedule": {
+        "description": "Schedule"
+    },
+    "searchPatient": "Search Patient",
+    "@searchPatient": {
+        "description": "Search Patient"
+    },
+    "sexAtBirth": "Sex at Birth",
     "@sexAtBirth": {
-        "description": "The patient's assigned sex at birth"
+        "description": "Sex at Birth"
+    },
+    "signIn": "Sign In",
+    "@signIn": {
+        "description": "Sign In"
+    },
+    "signInWith": "Sign In With",
+    "@signInWith": {
+        "description": "Sign In With"
+    },
+    "signUp": "Sign Up",
+    "@signUp": {
+        "description": "Sign Up"
+    },
+    "unavailable": "Unavailable",
+    "@unavailable": {
+        "description": "Unavailable"
+    },
+    "years": "Years",
+    "@years": {
+        "description": "Years"
+    },
+    "year": "Year",
+    "@year": {
+        "description": "Year"
+    },
+    "month": "Month",
+    "@month": {
+        "description": "Month"
+    },
+    "day": "Day",
+    "@day": {
+        "description": "Day"
     }
 }

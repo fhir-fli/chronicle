@@ -9,7 +9,6 @@ class PatientChartView extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(context.loc.patientListTitle ?? ''),
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
