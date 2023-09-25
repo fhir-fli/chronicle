@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../src.dart';
 
@@ -12,7 +11,6 @@ class LoginView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(loginProvider);
-    final AppLocalizations? labels = LocaleUtil().getLabels(context);
     final TextEditingController usernameController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
 
@@ -28,37 +26,33 @@ class LoginView extends HookConsumerWidget {
                 child: Column(
                   children: [
                     Gap(doubleByPercentHeight(context, .2)),
-                    Text(labels?.signIn ?? ''),
+                    Text(context.loc.signIn),
                     Gap(doubleByHeight(context, 30)),
                     StyledOvalTextFormField(
                       prefixIcon: const Icon(Icons.email),
-                      label: labels?.username,
+                      label: context.loc.username,
                       controller: usernameController,
                     ),
                     Gap(doubleByHeight(context, 30)),
                     StyledOvalTextFormField(
                       prefixIcon: const Icon(Icons.lock),
-                      label: labels?.password,
+                      label: context.loc.password,
                       controller: passwordController,
                       obscureText: true,
                     ),
                     Gap(doubleByHeight(context, 60)),
                     StyledOvalButton(
-                      label: labels?.login,
+                      label: context.loc.login,
                       onPressed: () async {
                         ref.read(loginProvider.notifier).setUsernameAndPassword(
-                              usernameController.text,
-                              passwordController.text,
+                              // TODO(Dokotela): change this back when ready for real authentication
+                              'grey',
+                              '123456',
+                              // usernameController.text,
+                              // passwordController.text,
                             );
-                        await ref
-                            .watch(patientListProvider.notifier)
-                            .getPatients();
                         if (context.mounted) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const PatientListView()),
-                          );
+                          context.goNamed(Routes.patients.name);
                         }
                       },
                     ),

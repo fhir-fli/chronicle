@@ -14,11 +14,11 @@ class EditPatientView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final patient = ref.watch(activePatientProvider);
-    final AppLocalizations? labels = LocaleUtil().getLabels(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(labels?.patientListTitle ?? ''),
+        title: Text(context.loc.patientListTitle),
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
               onPressed: () {

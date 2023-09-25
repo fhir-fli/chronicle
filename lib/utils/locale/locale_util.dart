@@ -1,15 +1,7 @@
-// Flutter imports:
-import 'package:flutter/material.dart';
-
-// Package imports:
+// app_localizations_context.dart
+import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class LocaleUtil {
-  AppLocalizations? getLabels(BuildContext context) =>
-      AppLocalizations.of(context);
-
-  String? getLocaleName(BuildContext context) =>
-      AppLocalizations.of(context)?.localeName;
-
-  List<Locale> getSupportedLocales() => AppLocalizations.supportedLocales;
+extension LocalizedBuildContext on BuildContext {
+  AppLocalizations get loc => AppLocalizations.of(this);
 }

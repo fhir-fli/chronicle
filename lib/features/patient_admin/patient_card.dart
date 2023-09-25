@@ -2,8 +2,6 @@ import 'package:fhir/r4.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import '../../src.dart';
 
 class PatientCard extends StatelessWidget {
@@ -13,8 +11,6 @@ class PatientCard extends StatelessWidget {
   final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations? labels = LocaleUtil().getLabels(context);
-
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: ElevatedButton(
@@ -33,7 +29,7 @@ class PatientCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${labels?.names}: ',
+                  '${context.loc.names}: ',
                   style: const TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
@@ -45,7 +41,7 @@ class PatientCard extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      '${labels?.birthDateAbbreviation}: ',
+                      '${context.loc.birthDateAbbreviation}: ',
                       style: const TextStyle(
                           color: Colors.black, fontWeight: FontWeight.bold),
                     ),
@@ -59,7 +55,7 @@ class PatientCard extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      '${labels?.sexAtBirth}: ',
+                      '${context.loc.sexAtBirth}: ',
                       style: const TextStyle(
                           color: Colors.black, fontWeight: FontWeight.bold),
                     ),

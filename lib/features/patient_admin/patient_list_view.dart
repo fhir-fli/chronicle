@@ -2,9 +2,8 @@ import 'dart:math';
 
 import 'package:fhir/r4.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../src.dart';
 
@@ -13,14 +12,13 @@ class PatientListView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final AppLocalizations? labels = LocaleUtil().getLabels(context);
     final patientList = ref.watch(patientListProvider);
     final TextEditingController searchController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: true,
-        title: Text(labels?.patientListTitle ?? ''),
+        title: Text(context.loc.patientListTitle),
         actions: [
           IconButton(
               onPressed: () {
@@ -44,7 +42,7 @@ class PatientListView extends ConsumerWidget {
             Center(
               child: StyledOvalTextFormField(
                 prefixIcon: const Icon(Icons.search),
-                label: labels?.patientSearch,
+                label: context.loc.patientSearch,
                 controller: searchController,
               ),
             ),
@@ -55,11 +53,7 @@ class PatientListView extends ConsumerWidget {
                   ref
                       .watch(activePatientProvider.notifier)
                       .update(patientList.elementAt(index));
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const EditPatientView(false)),
-                  );
+                  context.goNamed(Routes.editPatient.name);
                 }),
                 itemCount: patientList.length,
               ),
@@ -86,11 +80,7 @@ class PatientListView extends ConsumerWidget {
                   ],
                 ),
               );
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => const EditPatientView(true)),
-          );
+          context.goNamed(Routes.newPatient.name);
         },
         label: const Text('New Patient'),
         icon: const Icon(Icons.add),

@@ -10,16 +10,12 @@ class Init extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const ProviderScope(
-      child: MaterialApp(
-        home: LoginView(),
+    return ProviderScope(
+      child: MaterialApp.router(
+        routerConfig: goRouter,
         // *** LOCALES ***
-        localizationsDelegates: [
-          ...AppLocalizations.localizationsDelegates,
-        ],
-        supportedLocales: [
-          ...AppLocalizations.supportedLocales,
-        ],
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
       ),
     );
   }
