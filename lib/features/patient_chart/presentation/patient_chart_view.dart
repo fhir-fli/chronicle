@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../../src.dart';
 
 class PatientChartView extends ConsumerWidget {
   const PatientChartView({super.key});
@@ -23,7 +26,12 @@ class PatientChartView extends ConsumerWidget {
                   (_) => false,
                 );
               },
-              icon: const Icon(Icons.logout))
+              icon: const Icon(Icons.logout)),
+          IconButton(
+              onPressed: () {
+                context.goNamed(Routes.editPatient.name);
+              },
+              icon: const Icon(Icons.edit))
         ],
       ),
       body: const Center(

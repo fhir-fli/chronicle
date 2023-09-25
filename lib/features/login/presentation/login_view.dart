@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../src.dart';
+import '../../../src.dart';
 
 class LoginView extends HookConsumerWidget {
   const LoginView({super.key});

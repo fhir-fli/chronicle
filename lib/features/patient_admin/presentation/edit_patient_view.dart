@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../src.dart';
+import '../../../src.dart';
 
 class EditPatientView extends ConsumerWidget {
   const EditPatientView(this.isNewPatient, {super.key});
@@ -17,7 +15,6 @@ class EditPatientView extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(context.loc.patientListTitle),
         automaticallyImplyLeading: false,
         actions: [
           IconButton(

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../src.dart';
+import '../../../src.dart';
 
 class PatientListView extends ConsumerWidget {
   const PatientListView({super.key});
@@ -42,7 +42,7 @@ class PatientListView extends ConsumerWidget {
             Center(
               child: StyledOvalTextFormField(
                 prefixIcon: const Icon(Icons.search),
-                label: context.loc.patientSearch,
+                label: context.loc.searchPatient,
                 controller: searchController,
               ),
             ),

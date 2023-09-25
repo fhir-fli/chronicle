@@ -48,5 +48,8 @@
     "years": "Anos",
     "year": "Ano",
     "month": "Mês",
-    "day": "Dia"
+    "day": "Dia",
+    "login": "Conecte-se",
+    "username": "nome de usuário",
+    "patientListTitle": "Lista de pacientes"
 }

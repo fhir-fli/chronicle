@@ -2,7 +2,7 @@ import 'package:fhir/r4.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../src.dart';
+import '../../../src.dart';
 
 class PatientCard extends StatelessWidget {
   const PatientCard(this.patient, this.onPressed, {super.key});

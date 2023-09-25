@@ -6,8 +6,9 @@ import '../src.dart';
 enum Routes {
   login,
   patients,
-  editPatient,
   newPatient,
+  patientChart,
+  editPatient,
 }
 
 final goRouter = GoRouter(
@@ -25,14 +26,6 @@ final goRouter = GoRouter(
       builder: (context, state) => const PatientListView(),
       routes: [
         GoRoute(
-          path: 'edit-patient',
-          name: Routes.editPatient.name,
-          pageBuilder: (context, state) => const MaterialPage(
-            fullscreenDialog: true,
-            child: EditPatientView(false),
-          ),
-        ),
-        GoRoute(
           path: 'new-patient',
           name: Routes.newPatient.name,
           pageBuilder: (context, state) => const MaterialPage(
@@ -44,7 +37,7 @@ final goRouter = GoRouter(
     ),
     GoRoute(
       path: '/patient-chart',
-      name: Routes.patients.name,
+      name: Routes.patientChart.name,
       builder: (context, state) => const PatientListView(),
       routes: [
         GoRoute(

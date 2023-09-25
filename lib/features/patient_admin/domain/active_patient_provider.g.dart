@@ -1,27 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'patient_providers.dart';
+part of 'active_patient_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$patientListHash() => r'8d5436a0c2a33a9fcdafbc6ec8f22382a5239d8e';
-
-/// See also [PatientList].
-@ProviderFor(PatientList)
-final patientListProvider =
-    AutoDisposeNotifierProvider<PatientList, Set<Patient>>.internal(
-  PatientList.new,
-  name: r'patientListProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$patientListHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef _$PatientList = AutoDisposeNotifier<Set<Patient>>;
-String _$activePatientHash() => r'a3f4fbc430ea2bf5f9de87ae7fad1bc0ceb1fd27';
+String _$activePatientHash() => r'ee148f63ad2651168cb300a1cdd0d573ca352e3b';
 
 /// See also [ActivePatient].
 @ProviderFor(ActivePatient)
