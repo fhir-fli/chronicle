@@ -14,9 +14,8 @@ class PatientList extends _$PatientList {
   Set<Patient> build() => {};
 
   Future<void> getPatients() async {
-    ref.read(getPatientsProvider).whenData(
-          (data) => state = data,
-        );
+    state = await requestPatientList(ref.read(loginProvider.notifier).username,
+        ref.read(loginProvider.notifier).password);
   }
 
   void addPatients(List<Patient> newPatients) {

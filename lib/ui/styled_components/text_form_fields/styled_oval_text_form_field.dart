@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../src.dart';
 
-class StyledOvalTextFormField extends HookConsumerWidget {
+class StyledOvalTextFormField extends ConsumerWidget {
   const StyledOvalTextFormField({
     this.prefixIcon,
     this.label,

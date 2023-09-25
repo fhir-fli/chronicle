@@ -1,6 +1,6 @@
 import 'package:fhir/r4.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class DropdownInputField extends ConsumerWidget {
   const DropdownInputField({

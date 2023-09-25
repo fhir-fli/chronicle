@@ -44,11 +44,16 @@ class ActivePatient extends _$ActivePatient {
 
   Future<void> save(bool isNewPatient) async {
     final oldPatient = state.copyWith();
-    ref.read(savePatientProvider(true, state)).whenData((data) {
-      if (oldPatient != data) {
-        state = data;
-        ref.read(patientListProvider.notifier).addOrUpdatePatient(data);
-      }
-    });
+    final newPatient = await savePatientOnServer(
+      isNewPatient: isNewPatient,
+      patient: state,
+      username: ref.read(loginProvider.notifier).username,
+      password: ref.read(loginProvider.notifier).password,
+    );
+
+    if (oldPatient != newPatient) {
+      state = newPatient;
+      ref.read(patientListProvider.notifier).addOrUpdatePatient(newPatient);
+    }
   }
 }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../src.dart';
 
-class LoginView extends HookConsumerWidget {
+class LoginView extends ConsumerWidget {
   const LoginView({super.key});
 
   @override

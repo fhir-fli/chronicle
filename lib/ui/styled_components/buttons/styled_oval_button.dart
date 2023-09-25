@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../src.dart';
 
-class StyledOvalButton extends HookConsumerWidget {
+class StyledOvalButton extends ConsumerWidget {
   const StyledOvalButton({
     this.label,
     this.percentWidth = .9,

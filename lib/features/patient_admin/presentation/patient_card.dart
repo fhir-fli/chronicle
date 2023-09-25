@@ -29,7 +29,7 @@ class PatientCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${context.loc.names}: ',
+                  '${context.loc.name}: ',
                   style: const TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),

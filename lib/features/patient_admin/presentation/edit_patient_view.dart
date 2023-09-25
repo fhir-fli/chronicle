@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../src.dart';
 
@@ -20,14 +21,7 @@ class EditPatientView extends ConsumerWidget {
           IconButton(
               onPressed: () {
                 ref.read(loginProvider.notifier).logout();
-                Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const LoginView();
-                    },
-                  ),
-                  (_) => false,
-                );
+                context.goNamed(Routes.login.name);
               },
               icon: const Icon(Icons.logout))
         ],
@@ -75,10 +69,7 @@ class EditPatientView extends ConsumerWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           ref.read(activePatientProvider.notifier).save(isNewPatient);
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const PatientListView()),
-          );
+          context.goNamed(Routes.patientChart.name);
         },
         label: const Text('Save Changes'),
         icon: const Icon(Icons.save),
