@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "chronicle",
+            "name": "vida",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "chronicle (profile mode)",
+            "name": "vida (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "chronicle (release mode)",
+            "name": "vida (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

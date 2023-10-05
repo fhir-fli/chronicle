@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:chronicle/src.dart';
+import 'package:vida/src.dart';
 
 class DateInputField extends ConsumerWidget {
   const DateInputField(this.oldValue, this.hint, this.update, {super.key});

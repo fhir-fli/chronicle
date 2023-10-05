@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:chronicle/features/patient_admin/data/patients_fake_repository.dart';
+import 'package:vida/features/patient_admin/data/patients_fake_repository.dart';
 import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4.dart';
 

@@ -1,5 +1,5 @@
 import 'package:fhir/r4.dart';
-import 'package:chronicle/src.dart';
+import 'package:vida/src.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'active_patient_provider.g.dart';
