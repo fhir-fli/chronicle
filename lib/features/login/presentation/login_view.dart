@@ -46,10 +46,8 @@ class LoginView extends ConsumerWidget {
                       onPressed: () async {
                         ref.read(loginProvider.notifier).setUsernameAndPassword(
                               // TODO(Dokotela): change this back when ready for real authentication
-                              'grey',
-                              '123456',
-                              // usernameController.text,
-                              // passwordController.text,
+                              usernameController.text,
+                              passwordController.text,
                             );
                         if (context.mounted) {
                           context.goNamed(Routes.patients.name);

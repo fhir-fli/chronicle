@@ -12,11 +12,11 @@ Future<Set<Patient>> requestPatientList(
       "Basic ${base64.encode(utf8.encode('$username:$password'))}";
 
   FhirRequest request = FhirRequest.search(
-      base: Uri.parse(endpoint), type: R4ResourceType.Patient);
+      base: Uri.parse(corsWorkaroundEndpoint), type: R4ResourceType.Patient);
   try {
     // TODO(Dokotela): using fake repository
     final Resource response = PatientsFakeRepository().getPatients();
-    // await request.request(headers: {'Authorization': basicAuth});
+    await request.request(headers: {'Authorization': basicAuth});
 
     final Set<Patient> newPatients = {};
 
