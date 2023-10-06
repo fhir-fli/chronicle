@@ -6,12 +6,12 @@ part of 'patient_list_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$patientListHash() => r'85e0c61d6af373aadb8165c4092b8c863b88f0d7';
+String _$patientListHash() => r'88db9c3ba41f94deb38272419d7fa0ca289ba4e3';
 
 /// See also [PatientList].
 @ProviderFor(PatientList)
 final patientListProvider =
-    AutoDisposeNotifierProvider<PatientList, Set<Patient>>.internal(
+    NotifierProvider<PatientList, Set<Patient>>.internal(
   PatientList.new,
   name: r'patientListProvider',
   debugGetCreateSourceHash:
@@ -20,6 +20,6 @@ final patientListProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$PatientList = AutoDisposeNotifier<Set<Patient>>;
+typedef _$PatientList = Notifier<Set<Patient>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

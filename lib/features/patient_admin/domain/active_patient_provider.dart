@@ -14,32 +14,39 @@ class ActivePatient extends _$ActivePatient {
   }
 
   void updateFamilyName(String familyName) {
-    final Patient oldPatient = state;
-    final HumanName oldName = oldPatient.name?.first ?? const HumanName();
-    final HumanName newName = oldName.copyWith(family: familyName);
-    final Patient newPatient = oldPatient.copyWith(name: [newName]);
-    state = newPatient;
+    state = state.updateFamilyName(familyName);
   }
 
   void updateGivenNames(String givenNames) {
-    final Patient oldPatient = state;
-    final HumanName oldName = oldPatient.name?.first ?? const HumanName();
-    final HumanName newName = oldName.copyWith(given: givenNames.split(' '));
-    final Patient newPatient = oldPatient.copyWith(name: [newName]);
-    state = newPatient;
+    state = state.updateGivenNames(givenNames);
   }
 
   void updateDob(DateTime newDob) {
-    final Patient oldPatient = state;
-    final Patient newPatient = oldPatient.copyWith(birthDate: FhirDate(newDob));
-    state = newPatient;
+    state = state.updateDob(newDob);
   }
 
   void updateSexAtBirth(String sexAtBirth) {
-    final Patient oldPatient = state;
-    final Patient newPatient =
-        oldPatient.copyWith(gender: FhirCode(sexAtBirth));
-    state = newPatient;
+    state = state.updateSexAtBirth(sexAtBirth);
+  }
+
+  void updateCountry(String country, [int index = 0]) {
+    state = state.updateCountry(country, index);
+  }
+
+  void updateState(String state, [int index = 0]) {
+    this.state = this.state.updateState(state, index);
+  }
+
+  void updateDistrict(String district, [int index = 0]) {
+    state = state.updateDistrict(district, index);
+  }
+
+  void updateCity(String city, [int index = 0]) {
+    state = state.updateCity(city, index);
+  }
+
+  void updateLine(List<String> line, [int index = 0]) {
+    state = state.updateLine(line, index);
   }
 
   Future<void> save(bool isNewPatient) async {
@@ -50,7 +57,6 @@ class ActivePatient extends _$ActivePatient {
       username: ref.read(loginProvider.notifier).username,
       password: ref.read(loginProvider.notifier).password,
     );
-
     if (oldPatient != newPatient) {
       state = newPatient;
       ref.read(patientListProvider.notifier).addOrUpdatePatient(newPatient);

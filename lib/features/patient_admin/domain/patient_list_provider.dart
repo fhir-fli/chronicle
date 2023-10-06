@@ -6,7 +6,7 @@ import '../../../src.dart';
 
 part 'patient_list_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class PatientList extends _$PatientList {
   int index = 0;
 
@@ -14,8 +14,11 @@ class PatientList extends _$PatientList {
   Set<Patient> build() => {};
 
   Future<void> getPatients() async {
-    state = await requestPatientList(ref.read(loginProvider.notifier).username,
-        ref.read(loginProvider.notifier).password);
+    state = {
+      ...state,
+      ...await requestPatientList(ref.read(loginProvider.notifier).username,
+          ref.read(loginProvider.notifier).password)
+    };
   }
 
   void addPatients(List<Patient> newPatients) {
@@ -30,6 +33,7 @@ class PatientList extends _$PatientList {
 
   void addOrUpdatePatient(Patient newPatient) {
     Set<Patient> oldState = state.toSet();
+
     if (oldState.isEmpty) {
       state = {newPatient};
     } else {
@@ -43,6 +47,7 @@ class PatientList extends _$PatientList {
           newPatient,
           ...oldState.toList().sublist(index)
         };
+        print('existing patient');
       } else {
         oldState.add(newPatient);
       }

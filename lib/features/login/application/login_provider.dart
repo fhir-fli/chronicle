@@ -2,7 +2,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'login_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class Login extends _$Login {
   String username = '';
   String password = '';

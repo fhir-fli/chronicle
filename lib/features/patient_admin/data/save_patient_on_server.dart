@@ -10,17 +10,17 @@ Future<Patient> savePatientOnServer(
     required Patient patient,
     required String username,
     required String password}) async {
+  patient = (patient.newIdIfNoId() as Patient);
   String basicAuth =
       "Basic ${base64.encode(utf8.encode('$username:$password'))}";
 
   FhirRequest request = isNewPatient
       ? FhirRequest.create(base: Uri.parse(endpoint), resource: patient)
       : FhirRequest.update(base: Uri.parse(endpoint), resource: patient);
+
   try {
     final Resource response =
         await request.request(headers: {'Authorization': basicAuth});
-
-    print(response.toJson());
 
     if (response is Patient) {
       return response;

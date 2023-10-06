@@ -9,22 +9,23 @@ class PatientChartView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.read(patientListProvider).forEach((element) {
+      print(element.name?.first.family);
+    });
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () {
+            context.goNamed(Routes.patients.name);
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
         actions: [
           IconButton(
               onPressed: () {
                 ref.read(loginProvider.notifier).logout();
-                Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const LoginView();
-                    },
-                  ),
-                  (_) => false,
-                );
+                context.goNamed(Routes.login.name);
               },
               icon: const Icon(Icons.logout)),
           IconButton(
@@ -34,8 +35,13 @@ class PatientChartView extends ConsumerWidget {
               icon: const Icon(Icons.edit))
         ],
       ),
-      body: const Center(
-        child: Text('PatientChartView'),
+      body: Center(
+        child: Column(
+          children: [
+            const Text('PatientChartView'),
+            PatientCard(ref.read(activePatientProvider), null),
+          ],
+        ),
       ),
     );
   }
