@@ -29,6 +29,11 @@ class PatientCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
+                  'ID: ${patient.fhirId}',
+                  style: const TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold),
+                ),
+                Text(
                   '${context.loc.name}: ',
                   style: const TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),

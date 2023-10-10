@@ -15,8 +15,10 @@ Future<Patient> savePatientOnServer(
       "Basic ${base64.encode(utf8.encode('$username:$password'))}";
 
   FhirRequest request = isNewPatient
-      ? FhirRequest.create(base: Uri.parse(endpoint), resource: patient)
-      : FhirRequest.update(base: Uri.parse(endpoint), resource: patient);
+      ? FhirRequest.create(
+          base: Uri.parse(corsWorkaroundEndpoint), resource: patient)
+      : FhirRequest.update(
+          base: Uri.parse(corsWorkaroundEndpoint), resource: patient);
 
   try {
     final Resource response =
