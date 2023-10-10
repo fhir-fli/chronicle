@@ -8,6 +8,10 @@
     "@a1languageTitle": {
         "description": "A message without extra parameters"
     },
+    "account": "Account",
+    "@account": {
+        "description": "Account"
+    },
     "admin": "Admin",
     "@admin": {
         "description": "Admin"
@@ -16,6 +20,10 @@
     "@age": {
         "description": "Age"
     },
+    "areYouSure": "Are you sure?",
+    "@areYouSure": {
+        "description": "Confirmation question"
+    },
     "birthDate": "BirthDate",
     "@birthDate": {
         "description": "Birth Date"
@@ -23,6 +31,10 @@
     "birthDateAbbreviation": "DOB",
     "@birthDateAbbreviation": {
         "description": "Abbreviation of Birth Date"
+    },
+    "cancel": "Cancel",
+    "@cancel": {
+        "description": "Cancel"
     },
     "communication": "Communication",
     "@communication": {
@@ -35,6 +47,10 @@
     "dataReview": "Data Review",
     "@dataReview": {
         "description": "Data Review"
+    },
+    "day": "Day",
+    "@day": {
+        "description": "Day"
     },
     "days": "Days",
     "@days": {
@@ -76,6 +92,10 @@
     "@homePage": {
         "description": "Home Page"
     },
+    "login": "Login",
+    "@login": {
+        "description": "Login"
+    },
     "loginCapital": "LOGIN",
     "@loginCapital": {
         "description": "LOGIN"
@@ -87,6 +107,10 @@
     "logout": "Logout",
     "@logout": {
         "description": "Logout"
+    },
+    "month": "Month",
+    "@month": {
+        "description": "Month"
     },
     "months": "Months",
     "@months": {
@@ -136,6 +160,10 @@
     "@patientInfo": {
         "description": "Patient Info"
     },
+    "patientListTitle": "Patient List",
+    "@patientListTitle": {
+        "description": "Title of the Patient List View"
+    },
     "population": "Population",
     "@population": {
         "description": "Population"
@@ -172,6 +200,10 @@
     "@signInWith": {
         "description": "Sign In With"
     },
+    "signout": "Signout",
+    "@signout": {
+        "description": "Signout"
+    },
     "signUp": "Sign Up",
     "@signUp": {
         "description": "Sign Up"
@@ -180,32 +212,16 @@
     "@unavailable": {
         "description": "Unavailable"
     },
-    "years": "Years",
-    "@years": {
-        "description": "Years"
+    "username": "username",
+    "@username": {
+        "description": "username"
     },
     "year": "Year",
     "@year": {
         "description": "Year"
     },
-    "month": "Month",
-    "@month": {
-        "description": "Month"
-    },
-    "day": "Day",
-    "@day": {
-        "description": "Day"
-    },
-    "login": "Login",
-    "@login": {
-        "description": "Login"
-    },
-    "username": "username",
-    "@username": {
-        "description": "username"
-    },
-    "patientListTitle": "Patient List",
-    "@patientListTitle": {
-        "description": "Title of the Patient List View"
+    "years": "Years",
+    "@years": {
+        "description": "Years"
     }
 }
