@@ -140,6 +140,14 @@
     "@notes": {
         "description": "Notes"
     },
+    "notImplemented": "Not Implemented",
+    "@notImplemented": {
+        "description": "Not Implemented"
+    },
+    "ok": "OK",
+    "@ok": {
+        "description": "OK"
+    },
     "orForLogin": "- OR -",
     "@orForLogin": {
         "description": "- OR -"
@@ -223,5 +231,13 @@
     "years": "Years",
     "@years": {
         "description": "Years"
+    },
+    "operationFailed": "Operation Failed",
+    "@operationFailed": {
+        "description": "Operation Failed"
+    },
+    "error": "Error",
+    "@error": {
+        "description": "Error"
     }
 }

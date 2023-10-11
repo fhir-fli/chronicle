@@ -35,6 +35,8 @@
     "newPatient": "Paciente nuevo",
     "noBirthdateAvailable": "No hay cita de nacimiento disponible",
     "notes": "Notas",
+    "notImplemented": "No se ha implementado",
+    "ok": "DE ACUERDO",
     "orForLogin": "- O -",
     "password": "Contraseña",
     "patient": "Paciente",
@@ -55,5 +57,7 @@
     "unavailable": "Indisponible",
     "username": "nombre de usuario",
     "year": "Año",
-    "years": "Años"
+    "years": "Años",
+    "operationFailed": "Operación fallida",
+    "error": "Error"
 }

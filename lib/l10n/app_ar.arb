@@ -35,6 +35,8 @@
     "newPatient": "مريض جديد",
     "noBirthdateAvailable": "لا يوجد تاريخ ميلاد متاح",
     "notes": "ملحوظات",
+    "notImplemented": "لم تنفذ",
+    "ok": "نعم",
     "orForLogin": "- أو -",
     "password": "كلمة المرور",
     "patient": "مريض",
@@ -55,5 +57,7 @@
     "unavailable": "غير متوفره",
     "username": "اسم المستخدم",
     "year": "سنة",
-    "years": "سنين"
+    "years": "سنين",
+    "operationFailed": "فشلت العملية",
+    "error": "خطأ"
 }

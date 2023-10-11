@@ -35,6 +35,8 @@
     "newPatient": "Nouvo pasyan",
     "noBirthdateAvailable": "Pa gen dat nesans ki disponib",
     "notes": "Nòt",
+    "notImplemented": "Pa aplike",
+    "ok": "Ok",
     "orForLogin": "- oswa -",
     "password": "Paròl",
     "patient": "Pasyan",
@@ -55,5 +57,7 @@
     "unavailable": "In bagay",
     "username": "non non itilizatè",
     "year": "Ane",
-    "years": "Ane"
+    "years": "Ane",
+    "operationFailed": "Operasyon echwe",
+    "error": "Erè"
 }
