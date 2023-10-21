@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../src.dart';
 
-class StyledOvalTextFormField extends ConsumerWidget {
+class StyledOvalTextFormField extends StatelessWidget {
   const StyledOvalTextFormField({
     this.prefixIcon,
     this.label,
@@ -22,7 +21,7 @@ class StyledOvalTextFormField extends ConsumerWidget {
   final bool obscureText;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) => Container(
+  Widget build(BuildContext context) => Container(
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(30.0),
@@ -39,6 +38,7 @@ class StyledOvalTextFormField extends ConsumerWidget {
               ? breakPoint
               : doubleByPercentWidth(context, 1.3),
           child: TextFormField(
+            autofocus: true,
             controller: controller,
             obscureText: obscureText,
             textInputAction: TextInputAction.next,

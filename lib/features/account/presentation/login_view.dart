@@ -5,12 +5,11 @@ import 'package:go_router/go_router.dart';
 
 import '../../../src.dart';
 
-class LoginView extends ConsumerWidget {
+class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    ref.watch(loginProvider);
+  Widget build(BuildContext context) {
     final TextEditingController usernameController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
 
@@ -41,17 +40,24 @@ class LoginView extends ConsumerWidget {
                       obscureText: true,
                     ),
                     Gap(doubleByHeight(context, 60)),
-                    StyledOvalButton(
-                      label: context.loc.login,
-                      onPressed: () async {
-                        ref.read(loginProvider.notifier).setUsernameAndPassword(
-                              // TODO(Dokotela): change this back when ready for real authentication
-                              usernameController.text,
-                              passwordController.text,
-                            );
-                        if (context.mounted) {
-                          context.goNamed(Routes.patients.name);
-                        }
+                    Consumer(
+                      builder: (context, ref, child) {
+                        ref.watch(loginProvider);
+                        return StyledOvalButton(
+                          label: context.loc.login,
+                          onPressed: () async {
+                            ref
+                                .read(loginProvider.notifier)
+                                .setUsernameAndPassword(
+                                  // TODO(Dokotela): change this back when ready for real authentication
+                                  usernameController.text,
+                                  passwordController.text,
+                                );
+                            if (context.mounted) {
+                              context.goNamed(Routes.patients.name);
+                            }
+                          },
+                        );
                       },
                     ),
                     Gap(doubleByHeight(context, 120)),

@@ -7,15 +7,17 @@ class AccountViewController extends StateNotifier<AsyncValue<void>> {
 
   final AuthRepository authRepository;
 
-  Future<void> logOut() => signOut();
+  Future<bool> logOut() => signOut();
 
-  Future<void> signOut() async {
+  Future<bool> signOut() async {
     try {
       state = const AsyncValue<void>.loading();
       await authRepository.signOut();
       state = const AsyncValue<void>.data(null);
+      return true;
     } catch (e, s) {
       state = AsyncValue<void>.error(e, s);
+      return false;
     }
   }
 }
