@@ -1,78 +1,49 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../../../src.dart';
 
-abstract class AuthRepository {
-  Stream<AppUser?> authStateChanges();
-  AppUser? get currentUser;
-  Future<void> signInWithEmailAndPassword(String email, String password);
-  Future<void> createUserWithEmailAndPassword(String email, String password);
-  Future<void> signOut();
-}
-
-class FirebaseAuthRepository implements AuthRepository {
-  @override
-  Stream<AppUser?> authStateChanges() {
-    // TODO: implement authStateChanges
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<void> createUserWithEmailAndPassword(String email, String password) {
-    // TODO: implement createUserWithEmailAndPassword
-    throw UnimplementedError();
-  }
-
-  @override
-  // TODO: implement currentUser
-  AppUser? get currentUser => throw UnimplementedError();
-
-  @override
-  Future<void> signInWithEmailAndPassword(String email, String password) {
-    // TODO: implement signInWithEmailAndPassword
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<void> signOut() {
-    // TODO: implement signOut
-    throw UnimplementedError();
-  }
-}
-
 class FakeAuthRepository implements AuthRepository {
-  @override
-  Stream<AppUser?> authStateChanges() => Stream.value(null);
+  final _authState = InMemoryStore<AppUser?>(null);
 
   @override
-  AppUser? get currentUser => null;
+  Stream<AppUser?> authStateChanges() => _authState.stream;
 
   @override
-  Future<void> signInWithEmailAndPassword(String email, String password) async {
+  AppUser? get currentUser => _authState.value;
+
+  @override
+  Future<void> signInWithEmailAndPassword(
+    String email,
+    String password,
+  ) async {
     await Future.delayed(const Duration(seconds: 1));
+    if (currentUser == null) {
+      _createNewUser(email);
+    }
     return;
   }
 
   @override
   Future<void> createUserWithEmailAndPassword(
-      String email, String password) async {
+    String email,
+    String password,
+  ) async {
     await Future.delayed(const Duration(seconds: 1));
+    if (currentUser == null) {
+      _createNewUser(email);
+    }
     return;
   }
+
+  void _createNewUser(String email) {
+    _authState.value =
+        AppUser(uid: email.split('').reversed.join(''), email: email);
+  }
+
+  void dispose() => _authState.close();
 
   @override
-  Future<void> signOut() async {
+  Future<bool> signOut() async {
     await Future.delayed(const Duration(seconds: 2));
-    throw Exception('Oops, something went wrong!');
-    return;
+    _authState.value = null;
+    return true;
   }
 }
-
-final authRepositoryProvider = Provider<AuthRepository>((ref) {
-  return FakeAuthRepository();
-});
-
-final authStateChangesProvider = StreamProvider.autoDispose<AppUser?>((ref) {
-  final authRepository = ref.watch(authRepositoryProvider);
-  return authRepository.authStateChanges();
-});

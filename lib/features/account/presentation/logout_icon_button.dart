@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:vida/ui/utils/async_value_ui.dart';
 
 import '../../../src.dart';
 
@@ -8,16 +9,8 @@ class LogoutIconButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen<AsyncValue<void>>(accountViewControllerProvider,
-        (previousState, state) {
-      if (!state.isLoading && state.hasError) {
-        showExceptionAlertDialog(
-          context: context,
-          title: context.loc.error,
-          exception: state.error,
-        );
-      }
-    });
+    ref.listen<AsyncValue>(accountViewControllerProvider,
+        (_, state) => state.showAlertDialogOnError(context));
     final state = ref.watch(accountViewControllerProvider);
 
     return IconButton(
