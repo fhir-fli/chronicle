@@ -16,7 +16,7 @@ class FakeAuthRepository implements AuthRepository {
   ) async {
     await Future.delayed(const Duration(seconds: 1));
     if (currentUser == null) {
-      _createNewUser(email);
+      _createNewUser(email, password);
     }
     return;
   }
@@ -28,14 +28,17 @@ class FakeAuthRepository implements AuthRepository {
   ) async {
     await Future.delayed(const Duration(seconds: 1));
     if (currentUser == null) {
-      _createNewUser(email);
+      _createNewUser(email, password);
     }
     return;
   }
 
-  void _createNewUser(String email) {
-    _authState.value =
-        AppUser(uid: email.split('').reversed.join(''), email: email);
+  void _createNewUser(String email, String password) {
+    _authState.value = AppUser(
+      uid: email.split('').reversed.join(''),
+      email: email,
+      password: password,
+    );
   }
 
   void dispose() => _authState.close();
@@ -46,4 +49,7 @@ class FakeAuthRepository implements AuthRepository {
     _authState.value = null;
     return true;
   }
+
+  @override
+  Future<bool> logout() => signOut();
 }

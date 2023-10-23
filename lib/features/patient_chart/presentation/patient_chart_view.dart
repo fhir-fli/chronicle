@@ -9,9 +9,6 @@ class PatientChartView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.read(patientListProvider).forEach((element) {
-      print(element.name?.first.family);
-    });
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -24,7 +21,7 @@ class PatientChartView extends ConsumerWidget {
         actions: [
           IconButton(
               onPressed: () {
-                ref.read(loginProvider.notifier).logout();
+                ref.read(authRepositoryProvider).signOut();
                 context.goNamed(Routes.login.name);
               },
               icon: const Icon(Icons.logout)),
@@ -39,7 +36,8 @@ class PatientChartView extends ConsumerWidget {
         child: Column(
           children: [
             const Text('PatientChartView'),
-            PatientCard(ref.read(activePatientProvider), null),
+            PatientCard(
+                ref.read(activePatientRepositoryProvider).patient, null),
           ],
         ),
       ),

@@ -28,6 +28,9 @@ class StyledOvalButton extends ConsumerWidget {
     final double doublePercentHeight =
         doubleByPercentHeight(context, percentHeight);
 
+    print(widthBreakPoint);
+    print(doubleByPercentWidth(context, percentWidth));
+
     return SizedBox(
       width: doubleByPercentWidth(context, percentWidth) > widthBreakPoint
           ? widthBreakPoint

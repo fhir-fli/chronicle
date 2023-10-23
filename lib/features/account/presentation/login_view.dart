@@ -25,7 +25,10 @@ class LoginView extends StatelessWidget {
                 child: Column(
                   children: [
                     Gap(doubleByPercentHeight(context, .2)),
-                    Text(context.loc.signIn),
+                    Text(
+                      context.loc.signIn,
+                      style: const TextStyle(fontSize: 24),
+                    ),
                     Gap(doubleByHeight(context, 30)),
                     StyledOvalTextFormField(
                       prefixIcon: const Icon(Icons.email),
@@ -42,17 +45,20 @@ class LoginView extends StatelessWidget {
                     Gap(doubleByHeight(context, 60)),
                     Consumer(
                       builder: (context, ref, child) {
-                        ref.watch(loginProvider);
                         return StyledOvalButton(
+                          percentWidth: .8,
+                          heightMin: 40,
+                          widthBreakPoint: 300,
                           label: context.loc.login,
                           onPressed: () async {
-                            ref
-                                .read(loginProvider.notifier)
-                                .setUsernameAndPassword(
+                            await ref
+                                .read(authRepositoryProvider)
+                                .signInWithEmailAndPassword(
                                   // TODO(Dokotela): change this back when ready for real authentication
                                   usernameController.text,
                                   passwordController.text,
                                 );
+                            ref.read(patientsRepositoryProvider).getPatients();
                             if (context.mounted) {
                               context.goNamed(Routes.patients.name);
                             }

@@ -8,8 +8,8 @@ environment:
 
 dependencies:
   cupertino_icons: ^1.0.6
-  fhir: ^0.11.3
-  fhir_at_rest: ^0.11.3
+  fhir: ^0.11.4
+  fhir_at_rest: ^0.11.4
   flutter:
     sdk: flutter
   flutter_localizations:

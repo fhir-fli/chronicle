@@ -1,9 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:vida/ui/common_widgets/home_app_bar.dart';
 
 import '../../../src.dart';
 
@@ -14,26 +13,17 @@ class EditPatientView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final patient = ref.watch(activePatientProvider);
+    final patient = ref.watch(activePatientRepositoryProvider).patient;
     bool emptyAddress = patient.address == null || patient.address!.isEmpty;
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          leading: IconButton(
+        appBar: HomeAppBar(
+          IconButton(
             onPressed: () {
               context.goNamed(Routes.patients.name);
             },
             icon: const Icon(Icons.arrow_back),
           ),
-          actions: [
-            IconButton(
-                onPressed: () {
-                  ref.read(loginProvider.notifier).logout();
-                  context.goNamed(Routes.login.name);
-                },
-                icon: const Icon(Icons.logout))
-          ],
         ),
         body: Padding(
           padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 16.0),
@@ -44,21 +34,21 @@ class EditPatientView extends ConsumerWidget {
                     patient.name?.first.family ?? '',
                     'Family Name',
                     (String s) => ref
-                        .read(activePatientProvider.notifier)
+                        .read(activePatientRepositoryProvider)
                         .updateFamilyName(s)),
                 const Gap(12.0),
                 TextInputField(
                     patient.name?.first.given?.join(' ') ?? '',
                     'Given Names',
                     (String s) => ref
-                        .read(activePatientProvider.notifier)
+                        .read(activePatientRepositoryProvider)
                         .updateGivenNames(s)),
                 const Gap(12.0),
                 DateInputField(patient.birthDate?.valueDateTime, 'Birthdate',
                     (String s) {
                   final DateTime? dob = DateTime.tryParse(s);
                   if (dob != null) {
-                    ref.read(activePatientProvider.notifier).updateDob(dob);
+                    ref.read(activePatientRepositoryProvider).updateDob(dob);
                   }
                 }),
                 const Gap(12.0),
@@ -74,7 +64,7 @@ class EditPatientView extends ConsumerWidget {
                           'unknown',
                         ],
                         update: (String s) => ref
-                            .read(activePatientProvider.notifier)
+                            .read(activePatientRepositoryProvider)
                             .updateSexAtBirth(s)),
                   ],
                 ),
@@ -83,28 +73,29 @@ class EditPatientView extends ConsumerWidget {
                     emptyAddress ? '' : patient.address![0].country ?? '',
                     'Country',
                     (String s) => ref
-                        .read(activePatientProvider.notifier)
+                        .read(activePatientRepositoryProvider)
                         .updateCountry(s)),
                 const Gap(12.0),
                 TextInputField(
                     emptyAddress ? '' : patient.address![0].state ?? '',
                     'Province / State',
                     (String s) => ref
-                        .read(activePatientProvider.notifier)
+                        .read(activePatientRepositoryProvider)
                         .updateState(s)),
                 const Gap(12.0),
                 TextInputField(
                     emptyAddress ? '' : patient.address![0].district ?? '',
                     'District',
                     (String s) => ref
-                        .read(activePatientProvider.notifier)
+                        .read(activePatientRepositoryProvider)
                         .updateDistrict(s)),
                 const Gap(12.0),
                 TextInputField(
                     emptyAddress ? '' : patient.address![0].city ?? '',
                     'Commune / City',
-                    (String s) =>
-                        ref.read(activePatientProvider.notifier).updateCity(s)),
+                    (String s) => ref
+                        .read(activePatientRepositoryProvider)
+                        .updateCity(s)),
                 const Gap(12.0),
                 TextInputField(
                     emptyAddress
@@ -112,7 +103,7 @@ class EditPatientView extends ConsumerWidget {
                         : patient.address![0].line?.join(' ') ?? '',
                     'Village / Street Address',
                     (String s) => ref
-                        .read(activePatientProvider.notifier)
+                        .read(activePatientRepositoryProvider)
                         .updateLine([s])),
               ],
             ),
@@ -120,7 +111,7 @@ class EditPatientView extends ConsumerWidget {
         ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
-            ref.read(activePatientProvider.notifier).save(isNewPatient);
+            ref.read(activePatientRepositoryProvider).save(isNewPatient);
             context.goNamed(Routes.patientChart.name);
           },
           label: const Text('Save Changes'),

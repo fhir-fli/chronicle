@@ -34,21 +34,29 @@ class PatientListView extends StatelessWidget {
               child: Consumer(
                 builder: (context, ref, child) {
                   final ScrollController scrollController = ScrollController();
-                  final patientList = ref.watch(patientListProvider);
-                  ref.read(patientListProvider.notifier).getPatients();
                   return Scrollbar(
                     thumbVisibility: true,
                     controller: scrollController,
                     child: ListView.builder(
                       controller: scrollController,
-                      itemBuilder: (BuildContext context, int index) =>
-                          PatientCard(patientList.elementAt(index), () {
-                        ref
-                            .watch(activePatientProvider.notifier)
-                            .update(patientList.elementAt(index));
-                        context.goNamed(Routes.editPatient.name);
-                      }),
-                      itemCount: patientList.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final patient = ref
+                            .watch(patientsRepositoryProvider)
+                            .list
+                            .patients
+                            .elementAt(index);
+                        return PatientCard(patient, () {
+                          ref
+                              .watch(activePatientRepositoryProvider)
+                              .update(patient);
+                          context.goNamed(Routes.editPatient.name);
+                        });
+                      },
+                      itemCount: ref
+                          .watch(patientsRepositoryProvider)
+                          .list
+                          .patients
+                          .length,
                     ),
                   );
                 },
@@ -60,7 +68,7 @@ class PatientListView extends StatelessWidget {
       floatingActionButton: Consumer(
         builder: (context, ref, child) => FloatingActionButton.extended(
           onPressed: () {
-            ref.watch(activePatientProvider.notifier).update(
+            ref.watch(activePatientRepositoryProvider).update(
                   Patient(
                     identifier: [
                       Identifier(

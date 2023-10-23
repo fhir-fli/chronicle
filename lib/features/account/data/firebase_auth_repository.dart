@@ -28,4 +28,7 @@ class FirebaseAuthRepository implements AuthRepository {
     // TODO: implement signOut
     throw UnimplementedError();
   }
+
+  @override
+  Future<bool> logout() => signOut();
 }
