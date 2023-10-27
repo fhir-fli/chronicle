@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vida/ui/utils/async_value_ui.dart';
 
 import '../../../src.dart';
@@ -29,7 +30,7 @@ class LogoutIconButton extends ConsumerWidget {
                     .read(accountViewControllerProvider.notifier)
                     .signOut();
                 if (success && context.mounted) {
-                  Navigator.of(context).pop();
+                  context.goNamed(Routes.login.name);
                 }
               }
             },

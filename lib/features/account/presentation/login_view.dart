@@ -58,7 +58,6 @@ class LoginView extends StatelessWidget {
                                   usernameController.text,
                                   passwordController.text,
                                 );
-                            ref.read(patientsRepositoryProvider).getPatients();
                             if (context.mounted) {
                               context.goNamed(Routes.patients.name);
                             }
