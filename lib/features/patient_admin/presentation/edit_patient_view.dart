@@ -14,7 +14,7 @@ class EditPatientView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final patient = ref.watch(activePatientRepositoryProvider).patient;
-    bool emptyAddress = patient.address == null || patient.address!.isEmpty;
+    bool emptyAddress = patient?.address == null || patient!.address!.isEmpty;
     return SafeArea(
       child: Scaffold(
         appBar: HomeAppBar(
@@ -31,20 +31,20 @@ class EditPatientView extends ConsumerWidget {
             child: Column(
               children: [
                 TextInputField(
-                    patient.name?.first.family ?? '',
+                    patient?.name?.first.family ?? '',
                     'Family Name',
                     (String s) => ref
                         .read(activePatientRepositoryProvider)
                         .updateFamilyName(s)),
                 const Gap(12.0),
                 TextInputField(
-                    patient.name?.first.given?.join(' ') ?? '',
+                    patient?.name?.first.given?.join(' ') ?? '',
                     'Given Names',
                     (String s) => ref
                         .read(activePatientRepositoryProvider)
                         .updateGivenNames(s)),
                 const Gap(12.0),
-                DateInputField(patient.birthDate?.valueDateTime, 'Birthdate',
+                DateInputField(patient?.birthDate?.valueDateTime, 'Birthdate',
                     (String s) {
                   final DateTime? dob = DateTime.tryParse(s);
                   if (dob != null) {
@@ -55,7 +55,7 @@ class EditPatientView extends ConsumerWidget {
                 Row(
                   children: [
                     DropdownInputField(
-                        oldValue: patient.gender.toString(),
+                        oldValue: patient?.gender.toString(),
                         hint: 'Sex at Birth',
                         items: const [
                           'male',
