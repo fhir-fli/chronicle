@@ -51,13 +51,14 @@ class LoginView extends StatelessWidget {
                           widthBreakPoint: 300,
                           label: context.loc.login,
                           onPressed: () async {
-                            await ref
-                                .read(authRepositoryProvider)
-                                .signInWithEmailAndPassword(
-                                  // TODO(Dokotela): change this back when ready for real authentication
-                                  usernameController.text,
-                                  passwordController.text,
-                                );
+                            final authProvider =
+                                ref.read(authRepositoryProvider);
+                            if (authProvider is FakeAuthRepository) {
+                              await authProvider.signInWithEmailAndPassword(
+                                usernameController.text,
+                                passwordController.text,
+                              );
+                            }
                             if (context.mounted) {
                               context.goNamed(Routes.patients.name);
                             }

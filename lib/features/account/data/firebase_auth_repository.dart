@@ -7,7 +7,6 @@ class FirebaseAuthRepository implements AuthRepository {
     throw UnimplementedError();
   }
 
-  @override
   Future<void> createUserWithEmailAndPassword(String email, String password) {
     // TODO: implement createUserWithEmailAndPassword
     throw UnimplementedError();
@@ -17,7 +16,6 @@ class FirebaseAuthRepository implements AuthRepository {
   // TODO: implement currentUser
   AppUser? get currentUser => throw UnimplementedError();
 
-  @override
   Future<void> signInWithEmailAndPassword(String email, String password) {
     // TODO: implement signInWithEmailAndPassword
     throw UnimplementedError();
