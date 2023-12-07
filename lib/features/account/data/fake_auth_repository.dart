@@ -9,7 +9,6 @@ class FakeAuthRepository implements AuthRepository {
   @override
   AppUser? get currentUser => _authState.value;
 
-  @override
   Future<void> signInWithEmailAndPassword(
     String email,
     String password,
@@ -21,7 +20,6 @@ class FakeAuthRepository implements AuthRepository {
     return;
   }
 
-  @override
   Future<void> createUserWithEmailAndPassword(
     String email,
     String password,
@@ -52,4 +50,10 @@ class FakeAuthRepository implements AuthRepository {
 
   @override
   Future<bool> logout() => signOut();
+
+  @override
+  Future<void> signIn() {
+    // TODO: implement signIn
+    throw UnimplementedError();
+  }
 }
