@@ -32,7 +32,7 @@ class FakeAuthRepository implements AuthRepository {
   }
 
   void _createNewUser(String email, String password) {
-    _authState.value = AppUser(
+    _authState.value = FakeAppUser(
       uid: email.split('').reversed.join(''),
       email: email,
       password: password,

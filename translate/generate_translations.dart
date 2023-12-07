@@ -1,9 +1,23 @@
+import 'dart:io';
+
 import 'package:translations/translate.dart';
 
-Future<void> main() async => await translate(
-      translationCredentials: translationCredentials,
-      translationSheetId: translationSheetId,
-    );
+Future<void> main() async {
+  await translate(
+    translationCredentials: translationCredentials,
+    translationSheetId: translationSheetId,
+  );
+
+  final Directory inputDirectory = Directory('lib/l10n');
+  final Directory outputDirectory = Directory('../lib/l10n');
+  for (final file in inputDirectory.listSync()) {
+    if (file is File) {
+      final String fileName = file.path.split('/').last;
+      final File outputFile = File('${outputDirectory.path}/$fileName');
+      outputFile.writeAsStringSync(file.readAsStringSync());
+    }
+  }
+}
 
 const translationCredentials = {
   "type": "service_account",

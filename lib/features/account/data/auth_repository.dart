@@ -5,7 +5,6 @@ import '../../../src.dart';
 abstract class AuthRepository {
   Stream<AppUser?> authStateChanges();
   AppUser? get currentUser;
-  Future<void> signIn();
   Future<bool> signOut();
   Future<bool> logout();
 }
