@@ -11,8 +11,9 @@ dependencies:
   at_client_mobile: ^3.2.12
   at_onboarding_flutter: ^6.1.5
   cupertino_icons: ^1.0.6
-  fhir: ^0.11.4
+  fhir: ^0.11.5-dev2
   fhir_at_rest: ^0.11.4
+  fhir_db: ^0.11.0-dev5
   flutter:
     sdk: flutter
   flutter_localizations:
