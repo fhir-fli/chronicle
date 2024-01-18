@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:luhn_algorithm/luhn_algorithm.dart';
 
 import '../../src.dart';
 
@@ -73,15 +74,16 @@ class PatientListView extends ConsumerWidget {
                 Patient(
                   identifier: [
                     Identifier(
-                      fhirId: newIdString(),
+                      type: const CodeableConcept(
+                          text: 'Old Identification Number'),
                       use: IdentifierUse.official,
-                      type: CodeableConcept(coding: [
-                        Coding(
-                            code: FhirCode(
-                                '05a29f94-c0ed-11e2-94be-8c13b969e334'))
-                      ], text: 'OpenMRS ID'),
-                      value: '10000${Random().nextInt(10)}'
-                          '${"ABCDEFGHIJKLMNOPQRSTUVWXYZ"[Random().nextInt(26)]}',
+                      value: newIdString().replaceAll('-', '').substring(0, 10),
+                      // type: CodeableConcept(coding: [
+                      //   Coding(
+                      //       code: FhirCode(
+                      //           '05a29f94-c0ed-11e2-94be-8c13b969e334'))
+                      // ], text: 'OpenMRS ID'),
+                      // value: Luhn.generate(format: '10000xc', n: 1).first,
                     ),
                   ],
                 ),

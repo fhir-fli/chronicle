@@ -21,6 +21,7 @@ dependencies:
   http: ^1.1.0
   intl: ^0.18.0
   json_annotation: ^4.8.1
+  luhn_algorithm: ^1.0.0+1
   riverpod: ^2.4.0
   riverpod_annotation: ^2.1.5
 

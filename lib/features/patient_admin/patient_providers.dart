@@ -147,6 +147,8 @@ class ActivePatient extends _$ActivePatient {
     String basicAuth =
         "Basic ${base64.encode(utf8.encode('$username:$password'))}";
 
+    state.identifier?.first.toJson().toString().split('\n').forEach(print);
+
     FhirRequest request = isNewPatient
         ? FhirRequest.create(base: Uri.parse(endpoint), resource: state)
         : FhirRequest.update(base: Uri.parse(endpoint), resource: state);
