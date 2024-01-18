@@ -1,0 +1,9 @@
+name: translate
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  translations:
+    # git: git@github.com:fhir-fli/translations.git
+    path: ../../translations

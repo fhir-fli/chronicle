@@ -25,3 +25,8 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+
+# because it contains some credentials
+*translate.dart
+
+*mimic-fhir*

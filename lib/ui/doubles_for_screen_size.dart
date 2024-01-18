@@ -97,7 +97,7 @@ double doubleByPercentWidth(BuildContext context, num percentOfWidth) {
   } else if (width < tabletBreakPointWidth) {
     return width * percentOfWidth.toDouble() * tabletCoefficient;
   } else if (width < laptopBreakPointWidth) {
-    return percentOfWidth.toDouble() * laptopCoefficient;
+    return width * percentOfWidth.toDouble() * laptopCoefficient;
   } else {
     return width * percentOfWidth.toDouble();
   }

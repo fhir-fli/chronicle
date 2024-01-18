@@ -1,4 +1,4 @@
-package dev.fhirfli.mopenmrs
+package dev.fhirfli.vida
 
 import io.flutter.embedding.android.FlutterActivity
 
