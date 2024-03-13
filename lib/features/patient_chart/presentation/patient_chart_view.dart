@@ -14,19 +14,7 @@ class PatientChartView extends ConsumerWidget {
         centerTitle: true,
         automaticallyImplyLeading: false,
         actions: [
-          IconButton(
-              onPressed: () {
-                ref.read(loginProvider.notifier).logout();
-                Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const LoginView();
-                    },
-                  ),
-                  (_) => false,
-                );
-              },
-              icon: const Icon(Icons.logout)),
+          const SignOutIconButton(),
           IconButton(
               onPressed: () {
                 context.goNamed(Routes.editPatient.name);

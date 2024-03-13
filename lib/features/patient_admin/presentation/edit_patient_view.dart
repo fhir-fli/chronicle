@@ -17,14 +17,7 @@ class EditPatientView extends ConsumerWidget {
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-              onPressed: () {
-                ref.read(loginProvider.notifier).logout();
-                context.goNamed(Routes.login.name);
-              },
-              icon: const Icon(Icons.logout))
-        ],
+        actions: const [SignOutIconButton()],
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 16.0),

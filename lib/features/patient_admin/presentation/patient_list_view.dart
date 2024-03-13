@@ -19,16 +19,7 @@ class PatientListView extends StatelessWidget {
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: Text(context.loc.patientListTitle),
-        actions: [
-          Consumer(
-            builder: (context, ref, child) => IconButton(
-                onPressed: () {
-                  ref.read(loginProvider.notifier).logout();
-                  context.goNamed(Routes.login.name);
-                },
-                icon: const Icon(Icons.logout)),
-          )
-        ],
+        actions: const [SignOutIconButton()],
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(0, 16.0, 0, 0),

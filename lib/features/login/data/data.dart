@@ -1,1 +1,1 @@
-export 'fake_auth_repository.dart';
+export 'auth/auth.dart';
