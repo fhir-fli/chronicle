@@ -38,10 +38,10 @@ class ActivePatientRepository {
       _patientState.value?.updateAddressDistrict(district, index);
 
   void updateCity(String city, [int index = 0]) =>
-      _patientState.value?.updateAddressCity(city, index);
+      _patientState.value = _patientState.value?.updateAddressCity(city, index);
 
   void updateLine(List<String> line, [int index = 0]) =>
-      _patientState.value?.updateAddressLine(line, index);
+      _patientState.value = _patientState.value?.updateAddressLine(line, index);
 
   Future<void> save(bool isNewPatient) async {
     await Future.delayed(const Duration(seconds: 1));
