@@ -1,4 +1,4 @@
-package dev.fhirfli.chronicle
+package dev.fhirfli.vida
 
 import io.flutter.embedding.android.FlutterActivity
 

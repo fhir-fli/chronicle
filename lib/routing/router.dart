@@ -24,13 +24,22 @@ final goRouter = GoRouter(
       ),
     ),
     GoRoute(
-      path: '/patients',
-      name: Routes.patients.name,
-      pageBuilder: (context, state) => const MaterialPage(
-        fullscreenDialog: true,
-        child: PatientListView(),
-      ),
-    ),
+        path: '/patients',
+        name: Routes.patients.name,
+        pageBuilder: (context, state) => const MaterialPage(
+              fullscreenDialog: true,
+              child: PatientListView(),
+            ),
+        routes: [
+          GoRoute(
+            path: 'new-patient',
+            name: Routes.newPatient.name,
+            pageBuilder: (context, state) => const MaterialPage(
+              fullscreenDialog: true,
+              child: EditPatientView(true),
+            ),
+          ),
+        ]),
     GoRoute(
       path: '/patient-chart',
       name: Routes.patientChart.name,
@@ -39,14 +48,6 @@ final goRouter = GoRouter(
         child: PatientChartView(),
       ),
       routes: [
-        GoRoute(
-          path: 'new-patient',
-          name: Routes.newPatient.name,
-          pageBuilder: (context, state) => const MaterialPage(
-            fullscreenDialog: true,
-            child: EditPatientView(true),
-          ),
-        ),
         GoRoute(
           path: 'edit-patient',
           name: Routes.editPatient.name,

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:fhir/r4.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -19,7 +17,7 @@ class PatientListView extends StatelessWidget {
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: Text(context.loc.patientListTitle),
-        actions: const [SignOutIconButton()],
+        actions: const [LogoutIconButton()],
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(0, 16.0, 0, 0),
@@ -36,23 +34,29 @@ class PatientListView extends StatelessWidget {
               child: Consumer(
                 builder: (context, ref, child) {
                   final ScrollController scrollController = ScrollController();
-                  final patientList = ref.watch(patientListProvider);
-                  if (patientList.isEmpty) {
-                    ref.read(patientListProvider.notifier).getPatients();
-                  }
                   return Scrollbar(
                     thumbVisibility: true,
                     controller: scrollController,
                     child: ListView.builder(
                       controller: scrollController,
-                      itemBuilder: (BuildContext context, int index) =>
-                          PatientCard(patientList.elementAt(index), () {
-                        ref
-                            .watch(activePatientProvider.notifier)
-                            .update(patientList.elementAt(index));
-                        context.goNamed(Routes.editPatient.name);
-                      }),
-                      itemCount: patientList.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final patient = ref
+                            .watch(patientsRepositoryProvider)
+                            .list
+                            .patients
+                            .elementAt(index);
+                        return PatientCard(patient, () {
+                          ref
+                              .watch(activePatientRepositoryProvider)
+                              .update(patient);
+                          context.goNamed(Routes.editPatient.name);
+                        });
+                      },
+                      itemCount: ref
+                          .watch(patientsRepositoryProvider)
+                          .list
+                          .patients
+                          .length,
                     ),
                   );
                 },
@@ -64,23 +68,19 @@ class PatientListView extends StatelessWidget {
       floatingActionButton: Consumer(
         builder: (context, ref, child) => FloatingActionButton.extended(
           onPressed: () {
-            ref.read(activePatientProvider.notifier).update(
+            ref.watch(activePatientRepositoryProvider).update(
                   Patient(
                     identifier: [
                       Identifier(
-                        fhirId: newIdString(),
+                        value: newIdString(),
                         use: IdentifierUse.official,
-                        type: CodeableConcept(coding: [
-                          Coding(
-                              code: FhirCode(
-                                  '05a29f94-c0ed-11e2-94be-8c13b969e334'))
-                        ], text: 'OpenMRS ID'),
-                        value: '10000${Random().nextInt(10)}'
-                            '${"ABCDEFGHIJKLMNOPQRSTUVWXYZ"[Random().nextInt(26)]}',
+                        type: const CodeableConcept(
+                            text: 'Old Identification Number'),
                       ),
                     ],
                   ),
                 );
+
             context.goNamed(Routes.newPatient.name);
           },
           label: const Text('New Patient'),

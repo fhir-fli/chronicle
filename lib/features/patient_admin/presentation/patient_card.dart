@@ -7,7 +7,7 @@ import '../../../src.dart';
 class PatientCard extends StatelessWidget {
   const PatientCard(this.patient, this.onPressed, {super.key});
 
-  final Patient patient;
+  final Patient? patient;
   final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
@@ -29,12 +29,17 @@ class PatientCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
+                  'ID: ${patient?.fhirId}',
+                  style: const TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold),
+                ),
+                Text(
                   '${context.loc.name}: ',
                   style: const TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  fullNameFromHumanNameList(names: patient.name),
+                  fullNameFromHumanNameList(names: patient?.name),
                   style: const TextStyle(color: Colors.black),
                 ),
                 const Gap(4),
@@ -46,7 +51,7 @@ class PatientCard extends StatelessWidget {
                           color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      patient.birthDate.toString(),
+                      patient?.birthDate?.toString() ?? '',
                       style: const TextStyle(color: Colors.black),
                     ),
                   ],
@@ -60,7 +65,7 @@ class PatientCard extends StatelessWidget {
                           color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      patient.gender.toString(),
+                      patient?.gender?.toString() ?? '',
                       style: const TextStyle(color: Colors.black),
                     ),
                   ],

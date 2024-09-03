@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:chronicle/src.dart';
+
+import '../../src.dart';
 
 class DateInputField extends ConsumerWidget {
   const DateInputField(this.oldValue, this.hint, this.update, {super.key});
@@ -32,7 +33,7 @@ class DateInputField extends ConsumerWidget {
               lastDate: DateTime.now());
           if (pickedDate != null) {
             controller.text = pickedDate.toIso8601String().substring(0, 10);
-            ref.read(activePatientProvider.notifier).updateDob(pickedDate);
+            ref.read(activePatientRepositoryProvider).updateDob(pickedDate);
           }
         },
       ),

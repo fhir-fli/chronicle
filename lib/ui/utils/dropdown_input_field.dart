@@ -24,14 +24,8 @@ class DropdownInputField extends ConsumerWidget {
     return SizedBox(
       height: 40,
       child: DropdownMenu<String>(
-        hintText: hint,
-        helperText: hint,
+        label: Text(hint),
         initialSelection: oldValue,
-        // icon: const Icon(Icons.arrow_downward),
-        // decoration: InputDecoration(
-        //   border: const OutlineInputBorder(),
-        //   label: Text(hint),
-        // ),
         onSelected: (String? s) {
           if (s != null) {
             update(s);

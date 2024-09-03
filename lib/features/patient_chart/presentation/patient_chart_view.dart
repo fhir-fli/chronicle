@@ -12,9 +12,19 @@ class PatientChartView extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () {
+            context.goNamed(Routes.patients.name);
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
         actions: [
-          const SignOutIconButton(),
+          IconButton(
+              onPressed: () {
+                ref.read(authRepositoryProvider).signOut();
+                context.goNamed(Routes.login.name);
+              },
+              icon: const Icon(Icons.logout)),
           IconButton(
               onPressed: () {
                 context.goNamed(Routes.editPatient.name);
@@ -22,8 +32,14 @@ class PatientChartView extends ConsumerWidget {
               icon: const Icon(Icons.edit))
         ],
       ),
-      body: const Center(
-        child: Text('PatientChartView'),
+      body: Center(
+        child: Column(
+          children: [
+            const Text('PatientChartView'),
+            PatientCard(
+                ref.read(activePatientRepositoryProvider).patient, null),
+          ],
+        ),
       ),
     );
   }

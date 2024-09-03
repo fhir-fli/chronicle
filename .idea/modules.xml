@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/chronicle.iml" filepath="$PROJECT_DIR$/chronicle.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/chronicle_android.iml" filepath="$PROJECT_DIR$/android/chronicle_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vida.iml" filepath="$PROJECT_DIR$/vida.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/vida_android.iml" filepath="$PROJECT_DIR$/android/vida_android.iml" />
     </modules>
   </component>
 </project>
