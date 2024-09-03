@@ -24,22 +24,21 @@ final goRouter = GoRouter(
       ),
     ),
     GoRoute(
-        path: '/patients',
-        name: Routes.patients.name,
-        pageBuilder: (context, state) => const MaterialPage(
-              fullscreenDialog: true,
-              child: PatientListView(),
-            ),
-        routes: [
-          GoRoute(
-            path: 'new-patient',
-            name: Routes.newPatient.name,
-            pageBuilder: (context, state) => const MaterialPage(
-              fullscreenDialog: true,
-              child: EditPatientView(true),
-            ),
-          ),
-        ]),
+      path: '/patients',
+      name: Routes.patients.name,
+      pageBuilder: (context, state) => const MaterialPage(
+        fullscreenDialog: true,
+        child: PatientListView(),
+      ),
+    ),
+    GoRoute(
+      path: '/new-patient',
+      name: Routes.newPatient.name,
+      pageBuilder: (context, state) => const MaterialPage(
+        fullscreenDialog: true,
+        child: EditPatientView(true),
+      ),
+    ),
     GoRoute(
       path: '/patient-chart',
       name: Routes.patientChart.name,
@@ -47,16 +46,14 @@ final goRouter = GoRouter(
         fullscreenDialog: true,
         child: PatientChartView(),
       ),
-      routes: [
-        GoRoute(
-          path: 'edit-patient',
-          name: Routes.editPatient.name,
-          pageBuilder: (context, state) => const MaterialPage(
-            fullscreenDialog: true,
-            child: EditPatientView(false),
-          ),
-        ),
-      ],
+    ),
+    GoRoute(
+      path: '/edit-patient',
+      name: Routes.editPatient.name,
+      pageBuilder: (context, state) => const MaterialPage(
+        fullscreenDialog: true,
+        child: EditPatientView(false),
+      ),
     ),
   ],
 );
